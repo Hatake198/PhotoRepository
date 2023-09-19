@@ -18,4 +18,17 @@ class Post extends Model
     
     return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
     }
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+    public function users(){
+        return $this->belongsTo(User::class);
+    }
+    public function locations(){
+        return $this->hasOne(Location::class);
+    }
+    public function comments(){
+        return $this->hasOne(Comment::class);
+    }
 }
